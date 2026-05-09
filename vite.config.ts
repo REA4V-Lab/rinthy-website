@@ -22,6 +22,9 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
+        entryFileNames: "assets/[name]-[hash]-rinthy-live.js",
+        chunkFileNames: "assets/[name]-[hash]-rinthy-live.js",
+        assetFileNames: "assets/[name]-[hash]-rinthy-live[extname]",
         manualChunks(id: string) {
           if (id.includes("node_modules/framer-motion")) return "motion";
           if (id.includes("node_modules/lucide-react")) return "icons";
