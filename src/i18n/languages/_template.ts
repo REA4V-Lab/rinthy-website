@@ -99,13 +99,7 @@ export const TODO: Translations = {
       button: "TODO",
     },
   },
-  shutdown: {
-    navButtonTitle: "TODO",
-    navButtonPrefix: "TODO",
-    sectionPill: "TODO",
-    sectionHeadlineDone: "TODO",
-    sectionHeadlinePending: "TODO",
-  },
+
   footer: {
 
     tagline: "TODO",

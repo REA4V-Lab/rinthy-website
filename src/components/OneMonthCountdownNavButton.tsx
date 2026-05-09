@@ -89,13 +89,13 @@ export default function OneMonthCountdownNavButton({ onJump }: { onJump: () => v
       type="button"
       onClick={onJump}
       className="px-4 py-2 rounded-lg border border-red-500/50 bg-red-500/5 hover:border-red-500 hover:bg-red-500/10 transition-all duration-300 text-red-400 text-sm touch-manipulation flex items-center gap-2"
-      aria-label={t.shutdown.navButtonTitle}
-      title={t.shutdown.navButtonTitle}
+      aria-label={t.shutdown?.navButtonTitle ?? "Shutdown"}
+      title={t.shutdown?.navButtonTitle ?? "Shutdown"}
       initial={enableAnimations ? { opacity: 0, y: 6 } : undefined}
       animate={enableAnimations ? { opacity: 1, y: 0 } : undefined}
       transition={{ duration: enableAnimations ? 0.35 : 0.01 }}
     >
-      <span>{t.shutdown.navButtonPrefix}</span>
+      <span>{t.shutdown?.navButtonPrefix ?? "Shutdown in:"}</span>
 
 
       <span className="shrink-0 rounded-xl px-2 py-1 text-xs border border-white/10 bg-black/20 text-white/90">

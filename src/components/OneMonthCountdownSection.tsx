@@ -97,8 +97,14 @@ export default function OneMonthCountdownSection() {
 
   const headline = useMemo(
     () =>
-      isDone ? t.shutdown.sectionHeadlineDone : t.shutdown.sectionHeadlinePending,
-    [isDone, t.shutdown.sectionHeadlineDone, t.shutdown.sectionHeadlinePending]
+      isDone
+        ? t.shutdown?.sectionHeadlineDone ?? "The month is over."
+        : t.shutdown?.sectionHeadlinePending ?? "Countdown to website shutdown (Italy time):",
+    [
+      isDone,
+      t.shutdown?.sectionHeadlineDone,
+      t.shutdown?.sectionHeadlinePending,
+    ]
   );
 
 
@@ -113,7 +119,7 @@ export default function OneMonthCountdownSection() {
           className="text-center mb-10"
         >
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-red-500 tracking-wide uppercase mb-5">
-            {t.shutdown.sectionPill}
+            {t.shutdown?.sectionPill ?? "Shutdown"}
           </span>
 
           <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">{headline}</h2>

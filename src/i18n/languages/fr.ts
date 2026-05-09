@@ -122,13 +122,7 @@ export const fr: Translations = {
       button: "Bientôt disponible",
     },
   },
-  shutdown: {
-    navButtonTitle: "Fermeture",
-    navButtonPrefix: "Fermeture dans :",
-    sectionPill: "Fermeture",
-    sectionHeadlineDone: "Le mois est terminé.",
-    sectionHeadlinePending: "Compte à rebours avant la fermeture du site (heure italienne) :",
-  },
+
   footer: {
 
     tagline: "Application Modrinth non officielle",

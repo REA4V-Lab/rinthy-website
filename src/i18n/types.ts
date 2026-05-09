@@ -80,7 +80,7 @@ export interface Translations {
       button: string;
     };
   };
-  shutdown: {
+  shutdown?: {
     navButtonTitle: string;
     navButtonPrefix: string;
     sectionPill: string;
