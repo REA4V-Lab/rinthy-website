@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Heart, ExternalLink } from "lucide-react";
+import { Github, Heart, MessageCircle } from "lucide-react";
 import { useI18n } from "../i18n/I18nContext";
 import { usePerformanceProfile } from "../hooks/usePerformanceProfile";
 
@@ -29,7 +29,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-6 text-sm text-modrinth-muted">
             <a
-              href="https://github.com/EmanuelPlays/rinthy-website"
+              href="https://github.com/imsawiq/Rinthy"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
@@ -43,15 +43,34 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <ExternalLink size={15} />
+              <MessageCircle size={15} />
               Discord
             </a>
           </div>
         </motion.div>
 
         <div className="mt-10 pt-8 border-t border-modrinth-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-modrinth-muted">
-          <p className="flex items-center gap-1">
-            {t.footer.madeWith} <Heart size={12} className="text-red-500 fill-red-500" /> {t.footer.madeBy}
+          <p className="flex flex-wrap items-center justify-center sm:justify-start gap-x-1.5 gap-y-1">
+            <span>{t.footer.madeWith}</span>
+            <Heart size={12} className="text-red-500 fill-red-500" />
+            <span>{t.footer.rinthyBy}</span>
+            <a
+              href="https://github.com/imsawiq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-modrinth-green hover:text-white transition-colors"
+            >
+              sawiq
+            </a>
+            <span>{t.footer.websiteBy}</span>
+            <a
+              href="https://github.com/EmanuelPlays"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-modrinth-green hover:text-white transition-colors"
+            >
+              EmanuelPlays
+            </a>
           </p>
           <p>
             {t.footer.disclaimer}
@@ -61,4 +80,3 @@ export default function Footer() {
     </footer>
   );
 }
-

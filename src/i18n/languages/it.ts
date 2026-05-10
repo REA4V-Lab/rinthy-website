@@ -9,6 +9,7 @@ export const it: Translations = {
     features: "Funzioni",
     screenshots: "Screenshot",
     howItWorks: "Come funziona",
+    download: "Scarica",
     tech: "Tech",
     gitHub: "GitHub",
     discord: "Discord",
@@ -19,7 +20,7 @@ export const it: Translations = {
     titleGradient: "in tasca.",
     description:
       "Rinthy consente agli sviluppatori Modrinth di gestire progetti, tracciare analisi e gestire versioni — tutto dal telefono. Nessun desktop richiesto.",
-    downloadApk: "Scarica APK",
+    downloadApk: "Scarica",
     exploreFeatures: "Esplora funzioni",
     stats: {
       fast: "Ultrarapido",
@@ -97,17 +98,11 @@ export const it: Translations = {
       button: "In Arrivo",
     },
   },
-  shutdown: {
-    navButtonTitle: "Shutdown",
-    navButtonPrefix: "Shutdown tra:",
-    sectionPill: "Shutdown",
-    sectionHeadlineDone: "Il mese è finito.",
-    sectionHeadlinePending: "Countdown per lo shutdown del sito (ora italiana):",
-  },
   footer: {
     tagline: "App non ufficiale Modrinth",
     madeWith: "Fatto con",
-    madeBy: "da EmanuelPlays, Rinthy non è di proprietà di EmanuelPlays",
+    rinthyBy: "Rinthy di",
+    websiteBy: "Sito di",
     disclaimer: "Non affiliato con Modrinth né approvato da Modrinth.",
     viewOnGitHub: "GitHub",
     joinDiscord: "Discord",

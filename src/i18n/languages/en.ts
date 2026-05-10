@@ -10,6 +10,7 @@ export const en: Translations = {
     features: "Features",
     screenshots: "Screenshots",
     howItWorks: "How it works",
+    download: "Download",
     tech: "Tech",
     gitHub: "GitHub",
     discord: "Discord",
@@ -20,7 +21,7 @@ export const en: Translations = {
     titleGradient: "your pocket.",
     description:
       "Rinthy lets Modrinth developers manage projects, track analytics, and handle versions — all from their phone. No desktop required.",
-    downloadApk: "Download APK",
+    downloadApk: "Download",
     exploreFeatures: "Explore features",
     stats: {
       fast: "Lightning fast",
@@ -96,18 +97,12 @@ export const en: Translations = {
       button: "Coming Soon",
     },
   },
-  shutdown: {
-    navButtonTitle: "Shutdown",
-    navButtonPrefix: "Shutdown in:",
-    sectionPill: "Shutdown",
-    sectionHeadlineDone: "The month is over.",
-    sectionHeadlinePending: "Countdown to website shutdown (Italy time):",
-  },
   footer: {
     tagline: "Unofficial Modrinth app",
 
     madeWith: "Made with",
-    madeBy: "by EmanuelPlays, Rinthy is not owned by EmanuelPlays",
+    rinthyBy: "Rinthy by",
+    websiteBy: "Website by",
     disclaimer: "Not affiliated with or endorsed by Modrinth.",
     viewOnGitHub: "View on GitHub",
     joinDiscord: "Join Discord",

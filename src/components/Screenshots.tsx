@@ -31,21 +31,21 @@ export default function Screenshots() {
   const prev = () => setActive((a) => (a - 1 + screenshots.length) % screenshots.length);
 
   return (
-    <section id="screenshots" className="relative py-32 px-6 overflow-hidden">
+    <section id="screenshots" className="relative py-20 sm:py-24 lg:py-28 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={enableAnimations ? { opacity: 0, y: 30 } : { opacity: 1, y: 0 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: enableAnimations ? 0.7 : 0.01, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-10 lg:mb-12"
         >
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
             {t.screenshots.badge}
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl mb-4">
             {t.screenshots.title}
           </h2>
-          <p className="text-modrinth-muted max-w-xl mx-auto text-lg">
+          <p className="text-modrinth-muted max-w-xl mx-auto text-base sm:text-lg">
             {t.screenshots.subtitle}
           </p>
         </motion.div>
@@ -56,7 +56,7 @@ export default function Screenshots() {
           transition={{ duration: enableAnimations ? 0.8 : 0.01, delay: enableAnimations ? 0.15 : 0, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="flex items-center justify-center gap-4 md:gap-8">
+          <div className="flex items-center justify-center gap-4 md:gap-6">
             <button
               onClick={prev}
               className="hidden md:flex w-12 h-12 rounded-full glass items-center justify-center hover:bg-white/10 transition-colors shrink-0"
@@ -65,7 +65,7 @@ export default function Screenshots() {
               <ChevronLeft size={20} />
             </button>
 
-            <div className={`relative w-full max-w-sm md:max-w-md aspect-[9/19] rounded-[2.5rem] bg-modrinth-card border border-modrinth-border p-3 shadow-2xl overflow-hidden ${enableGlows ? "glow-green" : "glow-green-subtle"}`}>
+            <div className={`relative w-full max-w-[18rem] sm:max-w-xs lg:max-w-[20rem] aspect-[9/19] rounded-[2rem] bg-modrinth-card border border-modrinth-border p-2.5 shadow-2xl overflow-hidden ${enableGlows ? "glow-green" : "glow-green-subtle"}`}>
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-20" />
               {enableAnimations ? (
                 <AnimatePresence mode="wait">

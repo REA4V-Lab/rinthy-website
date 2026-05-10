@@ -1,4 +1,4 @@
-   /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
@@ -24,11 +24,21 @@ export default {
       },
       colors: {
         modrinth: {
-          green: "#1BD96A",
-          dark: "#0D0D0D",
-          card: "#141414",
-          border: "#1F1F1F",
-          muted: "#8A8A8A",
+          green: "var(--theme-primary)",
+          dark: "var(--theme-primary-dark)",
+          card: "var(--theme-card)",
+          border: "var(--theme-border)",
+          muted: "var(--theme-text-muted)",
+        },
+        theme: {
+          background: "var(--theme-background)",
+          card: "var(--theme-card)",
+          border: "var(--theme-border)",
+          text: "var(--theme-text)",
+          "text-muted": "var(--theme-text-muted)",
+          primary: "var(--theme-primary)",
+          "primary-dark": "var(--theme-primary-dark)",
+          secondary: "var(--theme-secondary)",
         },
       },
       animation: {

@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import { useI18n } from "../i18n/I18nContext";
+import { useTranslation } from "../i18n/I18nContext";
 import { usePerformanceProfile } from "../hooks/usePerformanceProfile";
 
 function AndroidIcon({ className }: { className?: string }) {
   return (
-    <div className={`w-full h-full bg-center bg-no-repeat bg-contain rounded-xl ${className}`} style={{ backgroundImage: "url('/androidlogo.svg')" }} />
+    <div
+      className={`bg-center bg-no-repeat bg-contain rounded-xl ${className ?? ""}`}
+      style={{ backgroundImage: "url('/androidlogo.svg')", backgroundSize: "60%" }}
+    />
   );
 }
 
@@ -17,85 +20,135 @@ function AppleIcon({ className }: { className?: string }) {
   );
 }
 
-export default function DownloadSection() {
-  const { t } = useI18n();
+function DownloadCard({
+  icon: Icon,
+  title,
+  description,
+  buttonText,
+  href,
+  disabled = false,
+  delay = 0,
+  iconSize = "w-6 h-6",
+  containerSize = "w-12 h-12"
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  buttonText: string;
+  href?: string;
+  disabled?: boolean;
+  delay?: number;
+  iconSize?: string;
+  containerSize?: string;
+}) {
   const { enableAnimations } = usePerformanceProfile();
 
-  const fadeUp = enableAnimations
-    ? { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } }
-    : { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } };
+  const animationProps = enableAnimations
+    ? {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+      }
+    : {};
+
+  const cardClass = disabled
+    ? "card-glass opacity-70"
+    : "card-glass border-modrinth-green/20 hover:border-modrinth-green/40 transition-all duration-500";
+
+  const iconClass = disabled
+    ? `${containerSize} rounded-2xl bg-white/5 flex items-center justify-center`
+    : `${containerSize} rounded-2xl bg-modrinth-green/10 flex items-center justify-center`;
+
+  const titleClass = disabled
+    ? "font-display font-bold text-xl mb-2 text-white/60"
+    : "font-display font-bold text-xl mb-2";
+
+  const buttonClass = disabled
+    ? "btn-secondary opacity-50 cursor-not-allowed"
+    : "btn-primary w-full justify-center";
+
+  const ButtonComponent = disabled ? "button" : "a";
+  const buttonProps = disabled
+    ? { disabled: true }
+    : { href, target: "_blank", rel: "noopener noreferrer" };
 
   return (
-    <section id="download" className="relative py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+    <motion.div {...animationProps} className={cardClass}>
+      <div className="flex flex-col items-center text-center gap-5">
+        <div className={iconClass}>
+          <Icon className={`${iconSize} ${disabled ? "text-white/60" : "text-modrinth-green"}`} />
+        </div>
+        <div>
+          <h3 className={titleClass}>{title}</h3>
+          <p className="text-sm text-modrinth-muted">{description}</p>
+        </div>
+        <ButtonComponent {...buttonProps} className={buttonClass}>
+          {disabled ? (
+            buttonText
+          ) : (
+            <>
+              <Download size={18} />
+              {buttonText}
+            </>
+          )}
+        </ButtonComponent>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function DownloadSection() {
+  const t = useTranslation();
+  const { enableAnimations } = usePerformanceProfile();
+
+  const headerAnimationProps = enableAnimations
+    ? {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      }
+    : {};
+
+  return (
+    <section id="download" className="section">
+      <div className="section-container">
         <motion.div
-          {...fadeUp}
-          transition={{ duration: enableAnimations ? 0.7 : 0.01, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-12"
+          {...headerAnimationProps}
+          className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
+          <span className="inline-block px-3 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-6 border border-modrinth-green/20">
             {t.download.badge}
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
+          <h2 className="text-section-title mb-6">
             {t.download.title}
           </h2>
-          <p className="text-modrinth-muted max-w-xl mx-auto text-lg">
+          <p className="text-section-subtitle max-w-2xl mx-auto">
             {t.download.subtitle}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 xs:grid-cols-2 gap-5 xs:gap-6 max-w-2xl mx-auto">
-          {/* Android Card */}
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: enableAnimations ? 0.6 : 0.01, delay: enableAnimations ? 0.1 : 0, ease: [0.22, 1, 0.36, 1] }}
-            className="relative p-6 xs:p-8 rounded-3xl glass border border-modrinth-green/20 hover:border-modrinth-green/40 transition-all duration-500 touch-manipulation"
-          >
-            <div className="flex flex-col items-center text-center gap-4 xs:gap-5">
-              <div className="w-14 h-14 xs:w-16 xs:h-16 rounded-2xl bg-modrinth-green/10 flex items-center justify-center">
-                <AndroidIcon className="w-7 h-7 xs:w-8 xs:h-8 text-modrinth-green" />
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-xl mb-1">{t.download.android.title}</h3>
-                <p className="text-sm text-modrinth-muted">{t.download.android.desc}</p>
-              </div>
-              <a
-                href="https://github.com/imsawiq/Rinthy/releases/latest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-modrinth-green text-modrinth-dark font-semibold hover:brightness-110 transition-all duration-300 w-full justify-center"
-              >
-                <Download size={18} />
-                {t.download.android.button}
-              </a>
-            </div>
-          </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <DownloadCard
+            icon={AndroidIcon}
+            title={t.download.android.title}
+            description={t.download.android.desc}
+            buttonText={t.download.android.button}
+            href="https://github.com/imsawiq/Rinthy/releases/latest"
+            iconSize="w-8 h-8"
+            containerSize="w-16 h-16"
+            delay={0.1}
+          />
 
-          {/* iOS Card */}
-          <motion.div
-            {...fadeUp}
-            transition={{ duration: enableAnimations ? 0.6 : 0.01, delay: enableAnimations ? 0.2 : 0, ease: [0.22, 1, 0.36, 1] }}
-            className="relative p-8 rounded-3xl glass border border-white/5 opacity-70"
-          >
-            <div className="flex flex-col items-center text-center gap-5">
-              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center">
-                <AppleIcon className="w-8 h-8 text-white/60" />
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-xl mb-1 text-white/60">{t.download.ios.title}</h3>
-                <p className="text-sm text-modrinth-muted">{t.download.ios.desc}</p>
-              </div>
-              <button
-                disabled
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 text-modrinth-muted font-medium cursor-not-allowed border border-white/5 w-full justify-center"
-              >
-                {t.download.ios.button}
-              </button>
-            </div>
-          </motion.div>
+          <DownloadCard
+            icon={AppleIcon}
+            title={t.download.ios.title}
+            description={t.download.ios.desc}
+            buttonText={t.download.ios.button}
+            disabled={true}
+            delay={0.2}
+          />
         </div>
       </div>
     </section>
   );
 }
-

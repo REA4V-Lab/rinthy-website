@@ -26,6 +26,9 @@ pnpm-debug.log*
 # IDE: VSCode
 .vscode/
 
+# AI Stuff if you make it:
+TODO.md
+
 # Misc
 .DS_Store
 Thumbs.db

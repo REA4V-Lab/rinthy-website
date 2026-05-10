@@ -30,7 +30,7 @@ It helps you manage your projects and check analytics right from your phone.
 - **Notifications** (unread notifications)
 - **Profile editing** (username, bio, avatar)
 - **Appearance settings** (theme, accent color)
-- **RU/EN language support**
+- **RU/EN/IT language support**
 - **Balance view**
 
 ## Getting started (Web development)

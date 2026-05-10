@@ -1,113 +1,113 @@
 // ============================================================
-//  Translation Template — Copy this file to add a new language
-// ============================================================
-//
-//  1. Duplicate this file and rename it to your language code
-//     (e.g. `de.ts` for German, `es.ts` for Spanish, `fr.ts` for French)
-//
-//  2. Add your language code to `src/i18n/types.ts`:
-//       export type Language = "en" | "ru" | "it" | "de";
-//
-//  3. Import and export it in `src/i18n/languages/index.ts`:
-//       import { de } from "./de";
-//       export const allTranslations = { en, ru, it, de };
-//
-//  4. Add the language button in `src/components/LanguageSwitcher.tsx`:
-//       { code: "de", label: "DE" }
-//
-//  5. Replace every "TODO" below with the translated string.
-//
+//  Language Template — Copy this file to create a new language
+//  1. Copy this file to a new file named [language-code].ts
+//  2. Replace all the placeholder text with translations
+//  3. Add the import and export to languages/index.ts
+//  4. Add the language code to types.ts
 // ============================================================
 
 import type { Translations } from "../types";
 
-export const TODO: Translations = {
+export const _template: Translations = {
   nav: {
-    features: "TODO",
-    screenshots: "TODO",
-    howItWorks: "TODO",
-    tech: "TODO",
+    features: "Features",
+    screenshots: "Screenshots",
+    howItWorks: "How it works",
+    download: "Download",
+    tech: "Tech",
     gitHub: "GitHub",
     discord: "Discord",
   },
   hero: {
-    badge: "TODO",
-    title: "TODO",
-    titleGradient: "TODO",
-    description: "TODO",
-    downloadApk: "TODO",
-    exploreFeatures: "TODO",
+    badge: "Unofficial app for Modrinth",
+    title: "Modrinth in",
+    titleGradient: "your pocket.",
+    description:
+      "Rinthy lets Modrinth developers manage projects, track analytics, and handle versions — all from their phone. No desktop required.",
+    downloadApk: "Download",
+    exploreFeatures: "Explore features",
     stats: {
-      fast: "TODO",
-      secure: "TODO",
-      native: "TODO",
+      fast: "Lightning fast",
+      secure: "Secure OAuth",
+      native: "Native feel",
     },
   },
   features: {
-    badge: "TODO",
-    title: "TODO",
-    subtitle: "TODO",
+    badge: "Features",
+    title: "Everything you need.",
+    subtitle: "A full toolkit for Modrinth developers, redesigned for mobile.",
     items: [
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
-      { title: "TODO", desc: "TODO" },
+      { title: "Projects Dashboard", desc: "Browse and manage all your Modrinth projects in one clean list." },
+      { title: "Analytics", desc: "Track downloads, follows, and engagement trends in real time." },
+      { title: "Version Management", desc: "View, create, and edit project versions from your phone." },
+      { title: "Team Control", desc: "Add, remove, and manage project team members on the go." },
+      { title: "Notifications", desc: "Stay on top of unread alerts without opening a browser." },
+      { title: "Profile Editing", desc: "Update username, bio, and avatar directly in the app." },
+      { title: "Appearance", desc: "Switch themes and pick your accent color for a personal touch." },
+      { title: "Balance View", desc: "Check your Modrinth earnings and payout status instantly." },
+      { title: "RU / EN", desc: "Full Russian and English language support baked in." },
     ],
   },
   screenshots: {
-    badge: "TODO",
-    title: "TODO",
-    subtitle: "TODO",
+    badge: "Screenshots",
+    title: "See it in action.",
+    subtitle: "Clean, fast, and purpose-built for mobile.",
     labels: {
-      login: "TODO",
-      dashboard: "TODO",
-      analytics: "TODO",
+      login: "Login",
+      dashboard: "Dashboard",
+      analytics: "Analytics",
     },
   },
   steps: {
-    badge: "TODO",
-    title: "TODO",
-    subtitle: "TODO",
+    badge: "How it works",
+    title: "Three steps to power.",
+    subtitle: "No complicated setup. Just install, log in, and go.",
     items: [
-      { step: "01", title: "TODO", desc: "TODO" },
-      { step: "02", title: "TODO", desc: "TODO" },
-      { step: "03", title: "TODO", desc: "TODO" },
+      {
+        step: "01",
+        title: "Get the app",
+        desc: "Grab the latest APK from GitHub Releases or build from source. It's open source and free forever.",
+      },
+      {
+        step: "02",
+        title: "Sign in",
+        desc: "Use Modrinth OAuth for a seamless login, or fall back to a Personal Access Token if you prefer.",
+      },
+      {
+        step: "03",
+        title: "Take control",
+        desc: "Manage projects, check analytics, edit versions, and handle your team — all from your phone.",
+      },
     ],
   },
   techStack: {
-    badge: "TODO",
-    title: "TODO",
-    subtitle: "TODO",
+    badge: "Tech Stack",
+    title: "Built with modern tools.",
+    subtitle: "A lightweight, type-safe stack designed for performance and maintainability.",
   },
   download: {
-    badge: "TODO",
-    title: "TODO",
-    subtitle: "TODO",
+    badge: "Get the app",
+    title: "Download Rinthy.",
+    subtitle: "Available on Android. iOS support is on the roadmap.",
     android: {
-      title: "TODO",
-      desc: "TODO",
-      button: "TODO",
+      title: "Android",
+      desc: "APK download via GitHub Releases",
+      button: "Download Latest",
     },
     ios: {
-      title: "TODO",
-      desc: "TODO",
-      button: "TODO",
+      title: "iOS",
+      desc: "App Store release coming soon",
+      button: "Coming Soon",
     },
   },
-
   footer: {
+    tagline: "Unofficial Modrinth app",
 
-    tagline: "TODO",
-    madeWith: "TODO",
-    madeBy: "TODO",
-    disclaimer: "TODO",
-    viewOnGitHub: "TODO",
-    joinDiscord: "TODO",
+    madeWith: "Made with",
+    rinthyBy: "Rinthy by",
+    websiteBy: "Website by",
+    disclaimer: "Not affiliated with or endorsed by Modrinth.",
+    viewOnGitHub: "View on GitHub",
+    joinDiscord: "Join Discord",
   },
 };
-

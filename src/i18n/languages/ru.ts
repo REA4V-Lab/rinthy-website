@@ -9,6 +9,7 @@ export const ru: Translations = {
     features: "Функции",
     screenshots: "Скриншоты",
     howItWorks: "Как это работает",
+    download: "Скачать",
     tech: "Технологии",
     gitHub: "GitHub",
     discord: "Discord",
@@ -19,7 +20,7 @@ export const ru: Translations = {
     titleGradient: "в кармане.",
     description:
       "Rinthy позволяет разработчикам Modrinth управлять проектами, отслеживать аналитику и обрабатывать версии — всё с телефона. Компьютер не нужен.",
-    downloadApk: "Скачать APK",
+    downloadApk: "Скачать",
     exploreFeatures: "Изучить функции",
     stats: {
       fast: "Молниеносно быстро",
@@ -102,7 +103,8 @@ export const ru: Translations = {
 
     tagline: "Неофициальное приложение Modrinth",
     madeWith: "Сделано",
-    madeBy: "EmanuelPlays, Rinthy не принадлежит EmanuelPlays",
+    rinthyBy: "Rinthy от",
+    websiteBy: "Сайт сделал",
     disclaimer: "Не связано с Modrinth и не одобрено Modrinth.",
     viewOnGitHub: "GitHub",
     joinDiscord: "Discord",

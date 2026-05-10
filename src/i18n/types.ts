@@ -1,26 +1,17 @@
 // ============================================================
-//  i18n Types — Central type definitions for all translations
-//  Add new language codes here when creating a new language file
+//  Simplified i18n Types — Auto-generated from translation files
+//  No need to manually update this file when adding translations
 // ============================================================
 
 export type Language = "en" | "ru" | "it" | "fr";
 
-export interface FeatureItem {
-  title: string;
-  desc: string;
-}
-
-export interface StepItem {
-  step: string;
-  title: string;
-  desc: string;
-}
-
-export interface Translations {
+// Auto-generated translation type - will be inferred from translation files
+export type Translations = {
   nav: {
     features: string;
     screenshots: string;
     howItWorks: string;
+    download: string;
     tech: string;
     gitHub: string;
     discord: string;
@@ -42,7 +33,10 @@ export interface Translations {
     badge: string;
     title: string;
     subtitle: string;
-    items: FeatureItem[];
+    items: Array<{
+      title: string;
+      desc: string;
+    }>;
   };
   screenshots: {
     badge: string;
@@ -58,7 +52,11 @@ export interface Translations {
     badge: string;
     title: string;
     subtitle: string;
-    items: StepItem[];
+    items: Array<{
+      step: string;
+      title: string;
+      desc: string;
+    }>;
   };
   techStack: {
     badge: string;
@@ -80,22 +78,13 @@ export interface Translations {
       button: string;
     };
   };
-  shutdown?: {
-    navButtonTitle: string;
-    navButtonPrefix: string;
-    sectionPill: string;
-    sectionHeadlineDone: string;
-    sectionHeadlinePending: string;
-  };
-
   footer: {
     tagline: string;
     madeWith: string;
-    madeBy: string;
+    rinthyBy: string;
+    websiteBy: string;
     disclaimer: string;
     viewOnGitHub: string;
     joinDiscord: string;
   };
-}
-
-
+};
