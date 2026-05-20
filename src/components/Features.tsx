@@ -83,6 +83,7 @@ export default function Features() {
     : {};
 
   return (
+
     <section id="features" className="section">
       <div className="section-container">
         <motion.div
@@ -93,9 +94,7 @@ export default function Features() {
           <span className="inline-block px-3 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-6 border border-modrinth-green/20">
             {t.features.badge}
           </span>
-          <h2 className="text-section-title mb-6">
-            {t.features.title}
-          </h2>
+          <h2 className="text-section-title mb-6">{t.features.title}</h2>
           <p className="text-section-subtitle max-w-2xl mx-auto">
             {t.features.subtitle}
           </p>
@@ -112,7 +111,11 @@ export default function Features() {
             />
           ))}
         </div>
+
       </div>
     </section>
   );
 }
+
+
+

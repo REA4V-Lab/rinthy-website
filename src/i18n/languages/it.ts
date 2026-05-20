@@ -45,7 +45,9 @@ export const it: Translations = {
       { title: "RU / EN", desc: "Supporto completo per russo e inglese integrato." },
     ],
   },
+
   screenshots: {
+
     badge: "Screenshot",
     title: "Guardalo in azione.",
     subtitle: "Pulito, veloce e progettato per il mobile.",

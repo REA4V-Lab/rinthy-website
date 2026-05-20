@@ -165,7 +165,7 @@ export default function Screenshots() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl"
+              className="max-h-[85vh] max-w-[96vw] rounded-2xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
               loading="lazy"
               decoding="async"
@@ -182,7 +182,7 @@ export default function Screenshots() {
           <img
             src={screenshots[lightbox].src}
             alt={t.screenshots.labels[screenshots[lightbox].key as keyof typeof t.screenshots.labels]}
-            className="max-h-[85vh] max-w-full rounded-2xl shadow-2xl"
+            className="max-h-[85vh] max-w-[96vw] rounded-2xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
             loading="lazy"
             decoding="async"

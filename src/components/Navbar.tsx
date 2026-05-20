@@ -14,13 +14,16 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { enableAnimations, enableBlur } = usePerformanceProfile();
 
-  const navLinks = useMemo(() => [
-    { label: t.nav.features, href: "#features" },
-    { label: t.nav.screenshots, href: "#screenshots" },
-    { label: t.nav.howItWorks, href: "#how-it-works" },
-    { label: t.nav.download, href: "#download" },
-    { label: t.nav.tech, href: "#tech" },
-  ], [t.nav]);
+  const navLinks = useMemo(
+    () => [
+      { label: t.nav.features, href: "#features" },
+      { label: t.nav.screenshots, href: "#screenshots" },
+      { label: t.nav.howItWorks, href: "#how-it-works" },
+      { label: t.nav.download, href: "#download" },
+      { label: t.nav.tech, href: "#tech" },
+    ],
+    [t.nav]
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -38,13 +41,13 @@ export default function Navbar() {
         : theme === "light"
         ? "bg-white/80 backdrop-blur-md md:bg-transparent md:backdrop-blur-0"
         : "bg-modrinth-dark/72 backdrop-blur-md md:bg-transparent md:backdrop-blur-0";
-    } else {
-      return scrolled || mobileOpen
-        ? "glass-strong-simple"
-        : theme === "light"
-        ? "bg-white/95 md:bg-transparent"
-        : "bg-modrinth-dark/95 md:bg-transparent";
     }
+
+    return scrolled || mobileOpen
+      ? "glass-strong-simple"
+      : theme === "light"
+      ? "bg-white/95 md:bg-transparent"
+      : "bg-modrinth-dark/95 md:bg-transparent";
   };
 
   return (
@@ -57,14 +60,20 @@ export default function Navbar() {
       <div className="section-container py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className={`w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
-            theme === "light" ? "bg-gray-100" : "bg-modrinth-card"
-          }`}>
+          <div
+            className={`w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 ${
+              theme === "light" ? "bg-gray-100" : "bg-modrinth-card"
+            }`}
+          >
             <img src="/logo.png" alt="Rinthy" className="w-5 h-5" />
           </div>
-          <span className={`font-display font-bold text-xl tracking-tight ${
-            theme === "light" ? "text-gray-900" : "text-white"
-          }`}>Rinthy</span>
+          <span
+            className={`font-display font-bold text-xl tracking-tight ${
+              theme === "light" ? "text-gray-900" : "text-white"
+            }`}
+          >
+            Rinthy
+          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -91,7 +100,7 @@ export default function Navbar() {
             href="https://github.com/imsawiq/Rinthy"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-compact group"
+            className="btn-compact group min-h-[44px] min-w-[44px]"
             aria-label="View on GitHub"
           >
             <Github size={14} />
@@ -101,7 +110,7 @@ export default function Navbar() {
             href="https://discord.gg/wzXpC2C6Uu"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-compact group"
+            className="btn-compact group min-h-[44px] min-w-[44px]"
             aria-label="Join Discord"
           >
             <MessageCircle size={14} />
@@ -114,9 +123,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           className={`md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg transition-colors ${
-            theme === "light"
-              ? "hover:bg-gray-100"
-              : "hover:bg-white/5"
+            theme === "light" ? "hover:bg-gray-100" : "hover:bg-white/5"
           }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
@@ -179,3 +186,4 @@ export default function Navbar() {
     </motion.nav>
   );
 }
+

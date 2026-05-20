@@ -11,6 +11,7 @@ export default function Hero() {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
   };
+  // ste merde non va tutto buggy bruh
 
   const animationProps = enableAnimations
     ? fadeUpVariants
@@ -32,7 +33,6 @@ export default function Hero() {
             <span className="w-1.5 h-1.5 rounded-full bg-modrinth-green animate-pulse" />
             {t.hero.badge}
           </motion.div>
-
           <motion.h1
             {...animationProps}
             transition={{
@@ -54,7 +54,7 @@ export default function Hero() {
               delay: 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-section-subtitle max-w-lg"
+            className="text-section-subtitle max-w-lg max-[420px]:text-base"
           >
             {t.hero.description}
           </motion.p>

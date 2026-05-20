@@ -69,7 +69,9 @@ export const fr: Translations = {
       },
     ],
   },
+
   screenshots: {
+
     badge: "Captures d'écran",
     title: "Voyez-le en action.",
     subtitle: "Épuré, rapide et conçu pour le mobile.",

@@ -45,6 +45,8 @@ export const en: Translations = {
       { title: "RU / EN", desc: "Full Russian and English language support baked in." },
     ],
   },
+
+
   screenshots: {
     badge: "Screenshots",
     title: "See it in action.",

@@ -38,6 +38,8 @@ export type Translations = {
       desc: string;
     }>;
   };
+
+
   screenshots: {
     badge: string;
     title: string;
