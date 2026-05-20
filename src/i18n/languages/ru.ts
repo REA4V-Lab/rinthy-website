@@ -44,30 +44,8 @@ export const ru: Translations = {
       { title: "Баланс", desc: "Проверяйте свои заработки на Modrinth и статус выплат мгновенно." },
       { title: "RU / EN", desc: "Полная поддержка русского и английского языков из коробки." },
     ],
-    alpha: {
-      title: "Experimental features",
-      subtitle: "Might change or disappear. Enabled for early testers only.",
-      cardFooter: "Alpha • MAX support",
-      items: [
-        {
-          title: "Experimental Analytics",
-          desc: "Deeper charts + custom ranges. May be refined before release.",
-        },
-        {
-          title: "Live Project Sync",
-          desc: "Prototype background syncing so your projects stay up-to-date.",
-        },
-        {
-          title: "Smart Version Sorting",
-          desc: "A/B sorting modes and improved filtering for faster version selection.",
-        },
-        {
-          title: "On-device Theme Experiments",
-          desc: "New accent + glow presets for small screens. Alpha only.",
-        },
-      ],
-    },
   },
+
   screenshots: {
 
     badge: "Скриншоты",

@@ -68,30 +68,8 @@ export const fr: Translations = {
         desc: "Support complet du russe et de l'anglais intégré.",
       },
     ],
-    alpha: {
-      title: "Experimental features",
-      subtitle: "Might change or disappear. Enabled for early testers only.",
-      cardFooter: "Alpha • MAX support",
-      items: [
-        {
-          title: "Experimental Analytics",
-          desc: "Deeper charts + custom ranges. May be refined before release.",
-        },
-        {
-          title: "Live Project Sync",
-          desc: "Prototype background syncing so your projects stay up-to-date.",
-        },
-        {
-          title: "Smart Version Sorting",
-          desc: "A/B sorting modes and improved filtering for faster version selection.",
-        },
-        {
-          title: "On-device Theme Experiments",
-          desc: "New accent + glow presets for small screens. Alpha only.",
-        },
-      ],
-    },
   },
+
   screenshots: {
 
     badge: "Captures d'écran",

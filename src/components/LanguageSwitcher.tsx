@@ -3,12 +3,13 @@ import { useI18n } from "../i18n/I18nContext";
 import type { Language } from "../i18n/types";
 import { ChevronDown } from "lucide-react";
 
-const languages: { code: Language; label: string }[] = [
-  { code: "en" as Language, label: "EN" },
-  { code: "ru" as Language, label: "RU" },
-  { code: "it" as Language, label: "IT" },
-  { code: "fr" as Language, label: "FR" },
+const languages: { code: Language; label: string; icon: React.ReactNode }[] = [
+  { code: "en" as Language, label: "EN", icon: <span aria-hidden>🇺🇸</span> },
+  { code: "ru" as Language, label: "RU", icon: <span aria-hidden>🇷🇺</span> },
+  { code: "it" as Language, label: "IT", icon: <span aria-hidden>🇮🇹</span> },
+  { code: "fr" as Language, label: "FR", icon: <span aria-hidden>🇫🇷</span> },
 ];
+
 
 const LanguageSwitcherInner = function LanguageSwitcher() {
   const { lang, setLang } = useI18n();
@@ -46,14 +47,21 @@ const LanguageSwitcherInner = function LanguageSwitcher() {
         onClick={handleToggle}
         className="group flex items-center gap-1 px-3 py-1.5 rounded-lg border border-modrinth-border bg-white/5 backdrop-blur-sm hover:border-modrinth-green/50 hover:bg-modrinth-green/5 transition-all duration-300 text-xs font-medium"
         aria-label={`Current language: ${currentLanguage}, toggle menu`}
-        aria-expanded={isOpen}
+        aria-haspopup="menu"
         type="button"
+
       >
-        <span className="font-medium">{currentLanguage}</span>
-        <ChevronDown 
-          size={14} 
+        <span className="flex items-center gap-2">
+          <span className="text-base leading-none">
+            {languages.find((l) => l.code === lang)?.icon}
+          </span>
+          <span className="font-medium">{currentLanguage}</span>
+        </span>
+        <ChevronDown
+          size={14}
           className={`transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""}`}
         />
+
       </button>
 
       {/* Dropdown Menu - Smooth Animation */}
@@ -77,13 +85,15 @@ const LanguageSwitcherInner = function LanguageSwitcher() {
             }`}
             aria-label={`Switch to ${label}`}
           >
-            <span>{label}</span>
-            {lang === code && (
-              <div className="w-2 h-2 bg-current rounded-full" />
-            )}
+            <div className="flex items-center gap-2">
+              <span className="text-base leading-none">{languages.find((l) => l.code === code)?.icon}</span>
+              <span>{label}</span>
+            </div>
+            {lang === code && <div className="w-2 h-2 bg-current rounded-full" />}
           </button>
         ))}
       </div>
+
     </div>
   );
 };
