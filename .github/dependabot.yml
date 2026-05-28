@@ -6,10 +6,6 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
     rebase-strategy: "auto"
-    # Ensure Dependabot raises security + version update PRs
     allow:
       - dependency-type: "all"
-    # Security updates are included by default; explicit config kept for clarity
-    # (Dependabot will treat advisories as security update PRs.)
-    ignore: []
 
