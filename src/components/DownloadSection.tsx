@@ -26,16 +26,18 @@ function DownloadCard({
   description,
   buttonText,
   href,
+  onClick,
   disabled = false,
   delay = 0,
   iconSize = "w-6 h-6",
-  containerSize = "w-12 h-12"
+  containerSize = "w-12 h-12",
 }: {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   buttonText: string;
   href?: string;
+  onClick?: () => void;
   disabled?: boolean;
   delay?: number;
   iconSize?: string;
@@ -70,7 +72,9 @@ function DownloadCard({
   const ButtonComponent = disabled ? "button" : "a";
   const buttonProps = disabled
     ? { disabled: true }
-    : { href, target: "_blank", rel: "noopener noreferrer" };
+    : href
+      ? { href, target: "_blank", rel: "noopener noreferrer" }
+      : { type: "button" as const, onClick };
 
   return (
     <motion.div {...animationProps} className={cardClass}>
@@ -133,7 +137,30 @@ export default function DownloadSection() {
             title={t.download.android.title}
             description={t.download.android.desc}
             buttonText={t.download.android.button}
-            href="https://github.com/imsawiq/Rinthy/releases/latest"
+            onClick={async () => {
+              const releaseUrl = "https://github.com/imsawiq/Rinthy/releases/latest";
+              try {
+                const res = await fetch("https://api.github.com/repos/imsawiq/Rinthy/releases/latest", {
+                  headers: {
+                    Accept: "application/vnd.github+json",
+                  },
+                });
+
+                if (!res.ok) {
+                  window.location.href = releaseUrl;
+                  return;
+                }
+
+                const release = await res.json();
+                const apkAsset = (release?.assets ?? []).find((a: any) =>
+                  typeof a?.name === "string" && a.name.toLowerCase().endsWith(".apk"),
+                );
+
+                window.location.href = apkAsset?.browser_download_url ?? releaseUrl;
+              } catch {
+                window.location.href = releaseUrl;
+              }
+            }}
             iconSize="w-8 h-8"
             containerSize="w-16 h-16"
             delay={0.1}

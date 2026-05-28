@@ -76,6 +76,9 @@ export default function Footer() {
             {t.footer.disclaimer}
           </p>
         </div>
+        <p className="mt-4 text-center text-xs text-modrinth-muted">
+          {t.footer.cookiesNote}
+        </p>
       </div>
     </footer>
   );

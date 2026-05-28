@@ -109,5 +109,6 @@ export const _template: Translations = {
     disclaimer: "Not affiliated with or endorsed by Modrinth.",
     viewOnGitHub: "View on GitHub",
     joinDiscord: "Join Discord",
+    cookiesNote: "This website does not use any external cookies. Only essential, internal cookies (such as theme preferences) are stored.",
   },
 };

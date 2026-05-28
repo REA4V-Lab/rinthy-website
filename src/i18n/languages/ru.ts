@@ -110,6 +110,7 @@ export const ru: Translations = {
     disclaimer: "Не связано с Modrinth и не одобрено Modrinth.",
     viewOnGitHub: "GitHub",
     joinDiscord: "Discord",
+    cookiesNote: "Этот сайт не использует внешние файлы cookie. Хранятся только внутренние файлы cookie (например, настройки темы).",
   },
 };
 

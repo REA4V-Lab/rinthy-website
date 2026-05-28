@@ -4,11 +4,12 @@ import type { Language } from "../i18n/types";
 import { ChevronDown } from "lucide-react";
 
 const languages: { code: Language; label: string; icon: React.ReactNode }[] = [
-  { code: "en" as Language, label: "EN", icon: <span aria-hidden>🇺🇸</span> },
-  { code: "ru" as Language, label: "RU", icon: <span aria-hidden>🇷🇺</span> },
-  { code: "it" as Language, label: "IT", icon: <span aria-hidden>🇮🇹</span> },
-  { code: "fr" as Language, label: "FR", icon: <span aria-hidden>🇫🇷</span> },
+  { code: "en" as Language, label: "EN", icon: null },
+  { code: "ru" as Language, label: "RU", icon: null },
+  { code: "it" as Language, label: "IT", icon: null },
+  { code: "fr" as Language, label: "FR", icon: null },
 ];
+
 
 
 const LanguageSwitcherInner = function LanguageSwitcher() {

@@ -16,7 +16,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     try {
       const savedTheme = localStorage.getItem("rinthy-theme") as Theme;
-      return savedTheme && savedTheme in themes ? savedTheme : "dark";
+      return savedTheme && savedTheme in themes ? (savedTheme as Theme) : "dark";
+
     } catch {
       return "dark";
     }

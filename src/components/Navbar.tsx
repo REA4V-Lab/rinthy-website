@@ -18,6 +18,8 @@ export default function Navbar() {
     () => [
       { label: t.nav.features, href: "#features" },
       { label: t.nav.screenshots, href: "#screenshots" },
+
+
       { label: t.nav.howItWorks, href: "#how-it-works" },
       { label: t.nav.download, href: "#download" },
       { label: t.nav.tech, href: "#tech" },

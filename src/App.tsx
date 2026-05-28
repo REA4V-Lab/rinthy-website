@@ -16,6 +16,10 @@ const Steps = lazy(() => import("./components/Steps"));
 const TechStack = lazy(() => import("./components/TechStack"));
 const Footer = lazy(() => import("./components/Footer"));
 
+
+
+
+
 function LoadingFallback() {
   return <div className="h-96 flex items-center justify-center">
     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-modrinth-green"></div>
@@ -70,13 +74,19 @@ export default function App() {
             <Suspense fallback={<LoadingFallback />}>
               <TechStack />
             </Suspense>
+
+            <Suspense fallback={<LoadingFallback />}>
+              <Footer />
+            </Suspense>
           </main>
 
-          <Suspense fallback={<LoadingFallback />}>
-            <Footer />
-          </Suspense>
+
+
+
 
           <SpeedInsights />
+
+
           <Analytics />
         </div>
       </I18nProvider>

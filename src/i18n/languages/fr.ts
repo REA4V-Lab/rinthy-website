@@ -135,5 +135,6 @@ export const fr: Translations = {
     disclaimer: "Non affilié à ou approuvé par Modrinth.",
     viewOnGitHub: "Voir sur GitHub",
     joinDiscord: "Rejoindre le Discord",
+    cookiesNote: "Ce site n'utilise aucun cookie externe. Seuls les cookies internes essentiels (tels que les préférences de thème) sont stockés.",
   },
 };

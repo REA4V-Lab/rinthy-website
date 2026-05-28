@@ -88,5 +88,6 @@ export type Translations = {
     disclaimer: string;
     viewOnGitHub: string;
     joinDiscord: string;
+    cookiesNote: string;
   };
 };

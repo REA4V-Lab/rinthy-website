@@ -4,6 +4,7 @@
 
 export type Theme = "dark" | "light" | "blue" | "purple";
 
+
 export interface ThemeConfig {
   name: string;
   colors: {
@@ -27,7 +28,9 @@ export interface ThemeConfig {
   };
 }
 
+
 export const themes: Record<Theme, ThemeConfig> = {
+
   dark: {
     name: "Dark",
     colors: {
@@ -88,4 +91,6 @@ export const themes: Record<Theme, ThemeConfig> = {
       glassBorder: "rgba(255, 255, 255, 0.08)",
     },
   },
+
 };
+

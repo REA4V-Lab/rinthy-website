@@ -108,6 +108,7 @@ export const it: Translations = {
     disclaimer: "Non affiliato con Modrinth né approvato da Modrinth.",
     viewOnGitHub: "GitHub",
     joinDiscord: "Discord",
+    cookiesNote: "Questo sito non utilizza cookie esterni. Solo i cookie interni essenziali (come le preferenze del tema) vengono memorizzati.",
   },
 };
 

@@ -6,11 +6,8 @@ export default {
   safelist: [
     'glass-simple',
     'glass-strong-simple',
-    'glow-green-subtle', 
+    'glow-green-subtle',
     'glow-green-strong-subtle',
-    {
-      pattern: /(bg|text|border)-(glass|glow)-(simple|subtle)/,
-    },
   ],
   theme: {
     screens: {
