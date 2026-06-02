@@ -4,7 +4,7 @@ import { Palette, Check, AlertTriangle } from "lucide-react";
 import { useTheme } from "../ThemeContext";
 import { themes } from "../themes";
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ onChange }: { onChange?: () => void }) {
   const { theme, setTheme, availableThemes } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -26,6 +26,8 @@ export default function ThemeSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-4 py-2 rounded-lg border border-modrinth-border hover:border-modrinth-green/50 hover:bg-modrinth-green/5 transition-all duration-300 text-sm"
         aria-label="Change theme"
+        aria-haspopup="menu"
+        type="button"
       >
         <Palette size={16} />
         <span className="hidden sm:inline">{themes[theme].name}</span>
@@ -53,6 +55,7 @@ export default function ThemeSwitcher() {
                   onClick={() => {
                     setTheme(themeKey);
                     setIsOpen(false);
+                    onChange?.();
                   }}
                   className="w-full px-4 py-3 text-left hover:bg-modrinth-border/50 transition-colors duration-200 flex items-center justify-between group"
                 >

@@ -12,7 +12,7 @@ const languages: { code: Language; label: string; icon: React.ReactNode }[] = [
 
 
 
-const LanguageSwitcherInner = function LanguageSwitcher() {
+const LanguageSwitcherInner = function LanguageSwitcher({ onSelect }: { onSelect?: () => void }) {
   const { lang, setLang } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -26,7 +26,8 @@ const LanguageSwitcherInner = function LanguageSwitcher() {
   const handleSelect = useCallback((code: Language) => {
     setLang(code);
     setIsOpen(false);
-  }, [setLang]);
+    onSelect?.();
+  }, [setLang, onSelect]);
 
   // Close dropdown on outside click
   useEffect(() => {

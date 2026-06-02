@@ -67,7 +67,7 @@ export default function Navbar() {
               theme === "light" ? "bg-gray-100" : "bg-modrinth-card"
             }`}
           >
-            <img src="/logo.png" alt="Rinthy" className="w-5 h-5" />
+<img src="/logo.png" alt="" role="presentation" aria-hidden="true" className="w-5 h-5 transition-transform duration-300" />
           </div>
           <span
             className={`font-display font-bold text-xl tracking-tight ${
@@ -118,8 +118,10 @@ export default function Navbar() {
             <MessageCircle size={14} />
             <span className="hidden lg:inline">{t.nav.discord}</span>
           </a>
-          <LanguageSwitcher />
-          <ThemeSwitcher />
+          <div className="pt-2 md:pt-0 flex items-center gap-2 transition-all duration-300 will-change-transform">
+                <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
+                <ThemeSwitcher onChange={() => setMobileOpen(false)} />
+              </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -178,8 +180,8 @@ export default function Navbar() {
                 <span className="font-medium">{t.footer.joinDiscord}</span>
               </a>
               <div className="pt-2">
-                <LanguageSwitcher />
-                <ThemeSwitcher />
+                <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
+                <ThemeSwitcher onChange={() => setMobileOpen(false)} />
               </div>
             </div>
           </div>

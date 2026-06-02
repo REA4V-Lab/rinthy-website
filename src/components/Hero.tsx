@@ -11,7 +11,6 @@ export default function Hero() {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
   };
-  // ste merde non va tutto buggy bruh
 
   const animationProps = enableAnimations
     ? fadeUpVariants
@@ -118,7 +117,7 @@ export default function Hero() {
                 <div className="p-4 xs:p-5 pt-8 xs:pt-10 h-full flex flex-col">
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center">
-                      <img src="/logo.png" alt="Rinthy" className="w-6 h-6" />
+<img src="/logo.png" alt="" role="presentation" aria-hidden="true" className="w-6 h-6" />
                     </div>
                     <div className="w-8 h-8 rounded-full bg-modrinth-border" />
                   </div>
