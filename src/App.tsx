@@ -8,6 +8,8 @@ import Hero from "./components/Hero";
 import DownloadSection from "./components/DownloadSection";
 import GradientOrbs from "./components/GradientOrbs";
 import { AlertTriangle } from "lucide-react";
+import DonatePage from "./components/donate/DonatePage";
+
 
 // Lazy-load below-the-fold sections for better performance
 const Features = lazy(() => import("./components/Features"));
@@ -55,30 +57,38 @@ export default function App() {
           <Navbar />
 
           <main>
-            <Hero />
+            {typeof window !== "undefined" && window.location.pathname === "/donate" ? (
+              <DonatePage />
+            ) : (
+              <>
+                <Hero />
 
-            <Suspense fallback={<LoadingFallback />}>
-              <Features />
-            </Suspense>
 
-            <Suspense fallback={<LoadingFallback />}>
-              <Screenshots />
-            </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <Features />
+                </Suspense>
 
-            <Suspense fallback={<LoadingFallback />}>
-              <Steps />
-            </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <Screenshots />
+                </Suspense>
 
-            <DownloadSection />
+                <Suspense fallback={<LoadingFallback />}>
+                  <Steps />
+                </Suspense>
 
-            <Suspense fallback={<LoadingFallback />}>
-              <TechStack />
-            </Suspense>
+                <DownloadSection />
 
-            <Suspense fallback={<LoadingFallback />}>
-              <Footer />
-            </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <TechStack />
+                </Suspense>
+
+                <Suspense fallback={<LoadingFallback />}>
+                  <Footer />
+                </Suspense>
+              </>
+            )}
           </main>
+
 
 
 

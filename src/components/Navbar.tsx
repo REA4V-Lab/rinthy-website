@@ -118,6 +118,14 @@ export default function Navbar() {
             <MessageCircle size={14} />
             <span className="hidden lg:inline">{t.nav.discord}</span>
           </a>
+          <a
+            href="/donate"
+            className="btn-compact group min-h-[44px] min-w-[44px]"
+            aria-label="Donate"
+          >
+            <span className="text-modrinth-green group-hover:text-white transition-colors font-semibold">$</span>
+            <span className="hidden lg:inline">Donate</span>
+          </a>
           <div className="pt-2 md:pt-0 flex items-center gap-2 transition-all duration-300 will-change-transform">
                 <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
                 <ThemeSwitcher onChange={() => setMobileOpen(false)} />
@@ -178,6 +186,15 @@ export default function Navbar() {
               >
                 <MessageCircle size={18} />
                 <span className="font-medium">{t.footer.joinDiscord}</span>
+              </a>
+              <a
+                href="https://rinthy.vercel.app/donate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-modrinth-green py-3 px-3 rounded-lg hover:bg-modrinth-green/10 transition-colors"
+              >
+                <span className="font-display font-bold">$</span>
+                <span className="font-medium">Donate</span>
               </a>
               <div className="pt-2">
                 <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
