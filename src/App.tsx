@@ -8,7 +8,7 @@ import Hero from "./components/Hero";
 import DownloadSection from "./components/DownloadSection";
 import GradientOrbs from "./components/GradientOrbs";
 import { AlertTriangle } from "lucide-react";
-import DonatePage from "./components/donate/DonatePage";
+import DonateSection from "./components/donate/DonateSection";
 
 
 // Lazy-load below-the-fold sections for better performance
@@ -18,14 +18,12 @@ const Steps = lazy(() => import("./components/Steps"));
 const TechStack = lazy(() => import("./components/TechStack"));
 const Footer = lazy(() => import("./components/Footer"));
 
-
-
-
-
 function LoadingFallback() {
-  return <div className="h-96 flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-modrinth-green"></div>
-  </div>;
+  return (
+    <div className="h-96 flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-modrinth-green" />
+    </div>
+  );
 }
 
 function LightThemeWarning() {
@@ -37,10 +35,7 @@ function LightThemeWarning() {
     <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 bg-yellow-500 text-yellow-900 px-4 py-2 rounded-lg shadow-lg flex items-center gap-2 text-sm font-medium">
       <AlertTriangle size={16} />
       Light theme is very bright and may cause eye strain. Consider switching to dark theme for a better experience.
-      <button
-        onClick={() => setTheme("dark")}
-        className="ml-2 underline hover:no-underline"
-      >
+      <button onClick={() => setTheme("dark")} className="ml-2 underline hover:no-underline">
         Switch to dark
       </button>
     </div>
@@ -57,49 +52,38 @@ export default function App() {
           <Navbar />
 
           <main>
-            {typeof window !== "undefined" && window.location.pathname === "/donate" ? (
-              <DonatePage />
-            ) : (
-              <>
-                <Hero />
+            <Hero />
 
+            <Suspense fallback={<LoadingFallback />}>
+              <Features />
+            </Suspense>
 
-                <Suspense fallback={<LoadingFallback />}>
-                  <Features />
-                </Suspense>
+            <Suspense fallback={<LoadingFallback />}>
+              <Screenshots />
+            </Suspense>
 
-                <Suspense fallback={<LoadingFallback />}>
-                  <Screenshots />
-                </Suspense>
+            <Suspense fallback={<LoadingFallback />}>
+              <Steps />
+            </Suspense>
 
-                <Suspense fallback={<LoadingFallback />}>
-                  <Steps />
-                </Suspense>
+            <DownloadSection />
 
-                <DownloadSection />
+            <Suspense fallback={<LoadingFallback />}>
+              <TechStack />
+            </Suspense>
 
-                <Suspense fallback={<LoadingFallback />}>
-                  <TechStack />
-                </Suspense>
+            <Suspense fallback={<LoadingFallback />}>
+              <Footer />
+            </Suspense>
 
-                <Suspense fallback={<LoadingFallback />}>
-                  <Footer />
-                </Suspense>
-              </>
-            )}
+            <DonateSection />
           </main>
 
-
-
-
-
-
           <SpeedInsights />
-
-
           <Analytics />
         </div>
       </I18nProvider>
     </ThemeProvider>
   );
 }
+

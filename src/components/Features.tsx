@@ -83,8 +83,7 @@ export default function Features() {
     : {};
 
   return (
-
-    <section id="features" className="section">
+    <section id="features" className="section -mt-4">
       <div className="section-container">
         <motion.div
           ref={headerRef}

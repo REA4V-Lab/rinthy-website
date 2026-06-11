@@ -99,6 +99,13 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
           <a
+            href="#donate"
+            className="btn-compact group min-h-[44px] px-4"
+          >
+            <span className="text-modrinth-green group-hover:text-white font-semibold">$</span>
+            <span className="hidden lg:inline ml-2 font-medium">Donate</span>
+          </a>
+          <a
             href="https://github.com/imsawiq/Rinthy"
             target="_blank"
             rel="noopener noreferrer"
@@ -118,14 +125,7 @@ export default function Navbar() {
             <MessageCircle size={14} />
             <span className="hidden lg:inline">{t.nav.discord}</span>
           </a>
-          <a
-            href="/donate"
-            className="btn-compact group min-h-[44px] min-w-[44px]"
-            aria-label="Donate"
-          >
-            <span className="text-modrinth-green group-hover:text-white transition-colors font-semibold">$</span>
-            <span className="hidden lg:inline">Donate</span>
-          </a>
+
           <div className="pt-2 md:pt-0 flex items-center gap-2 transition-all duration-300 will-change-transform">
                 <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
                 <ThemeSwitcher onChange={() => setMobileOpen(false)} />
@@ -170,6 +170,19 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-3 pt-3 border-t border-modrinth-border">
               <a
+                href="#donate"
+                onClick={() => setMobileOpen(false)}
+                className={`transition-colors py-3 min-h-[44px] flex items-center text-base ${
+                  theme === "light"
+                    ? "text-gray-600 hover:text-gray-900"
+                    : "text-modrinth-muted hover:text-white"
+                }`}
+              >
+                <span className="text-modrinth-green font-semibold">$</span>
+                <span className="ml-2 font-medium">Donate</span>
+              </a>
+
+              <a
                 href="https://github.com/imsawiq/Rinthy"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -187,15 +200,7 @@ export default function Navbar() {
                 <MessageCircle size={18} />
                 <span className="font-medium">{t.footer.joinDiscord}</span>
               </a>
-              <a
-                href="https://rinthy.vercel.app/donate"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-modrinth-green py-3 px-3 rounded-lg hover:bg-modrinth-green/10 transition-colors"
-              >
-                <span className="font-display font-bold">$</span>
-                <span className="font-medium">Donate</span>
-              </a>
+
               <div className="pt-2">
                 <LanguageSwitcher onSelect={() => setMobileOpen(false)} />
                 <ThemeSwitcher onChange={() => setMobileOpen(false)} />
