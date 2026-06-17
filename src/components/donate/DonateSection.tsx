@@ -1,29 +1,18 @@
-import { useEffect, useState } from "react";
+
+import { useI18n } from "../../i18n/I18nContext";
+import { usePerformanceProfile } from "../../hooks/usePerformanceProfile";
 
 const PAYPAL_URL = "https://new.donatepay.ru/@sawiq/payment";
 const USDT_TRC20 = "TPHqfb18BAqX7wegakp7sv8e4WWWTuJ4rM";
 const TON_USDT = "UQArPRrBLhA3GCyhZt0LUU3AGWsBl6l_L2v9gBUmls3HQyoq";
 
 export default function DonateSection() {
-  const [open, setOpen] = useState(false);
+  const { t } = useI18n();
+  usePerformanceProfile();
 
-  useEffect(() => {
-    // Open if user navigated to #donate
-    if (typeof window === "undefined") return;
-    const syncFromHash = () => {
-      setOpen(window.location.hash === "#donate");
-    };
-    syncFromHash();
-    window.addEventListener("hashchange", syncFromHash);
-    return () => window.removeEventListener("hashchange", syncFromHash);
-  }, []);
 
   return (
-    <section
-      id="donate"
-      className={`relative pt-24 pb-16 px-6 transition-transform transition-opacity duration-300 ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"}`}
-    >
-
+    <section id="donate" className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="mb-0">
           <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight">Donate</h1>
@@ -31,6 +20,7 @@ export default function DonateSection() {
             PayPal + crypto payments. Thanks for supporting Rinthy.
           </p>
         </div>
+
 
         <div className="space-y-6">
           <div className="rounded-2xl border border-modrinth-border bg-modrinth-card/30 p-5">

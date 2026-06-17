@@ -72,11 +72,11 @@ export default function App() {
               <TechStack />
             </Suspense>
 
+            <DonateSection />
+
             <Suspense fallback={<LoadingFallback />}>
               <Footer />
             </Suspense>
-
-            <DonateSection />
           </main>
 
           <SpeedInsights />
