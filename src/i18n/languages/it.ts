@@ -110,6 +110,10 @@ export const it: Translations = {
     joinDiscord: "Discord",
     cookiesNote: "Questo sito non utilizza cookie esterni. Solo i cookie interni essenziali (come le preferenze del tema) vengono memorizzati.",
   },
+  donate: {
+    title: "Donate",
+    description: "PayPal + crypto payments. Thanks for supporting Rinthy."
+  },
 };
 
 

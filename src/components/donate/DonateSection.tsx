@@ -15,9 +15,9 @@ export default function DonateSection() {
     <section id="donate" className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <div className="mb-0">
-          <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight">Donate</h1>
+          <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight">{t.donate.title}</h1>
           <p className="mt-3 text-modrinth-muted">
-            PayPal + crypto payments. Thanks for supporting Rinthy.
+            {t.donate.description}
           </p>
         </div>
 

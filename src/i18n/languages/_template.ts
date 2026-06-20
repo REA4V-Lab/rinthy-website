@@ -111,4 +111,9 @@ export const _template: Translations = {
     joinDiscord: "Join Discord",
     cookiesNote: "This website does not use any external cookies. Only essential, internal cookies (such as theme preferences) are stored.",
   },
+  donate: {
+    title: "Donate",
+    description: "PayPal + crypto payments. Thanks for supporting Rinthy."
+  },
 };
+

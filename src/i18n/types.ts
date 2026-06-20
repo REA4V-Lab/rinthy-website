@@ -7,6 +7,7 @@ export type Language = "en" | "ru" | "it" | "fr";
 
 // Auto-generated translation type - will be inferred from translation files
 export type Translations = {
+  donate: any;
   nav: {
     features: string;
     screenshots: string;

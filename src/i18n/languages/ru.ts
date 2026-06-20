@@ -112,5 +112,9 @@ export const ru: Translations = {
     joinDiscord: "Discord",
     cookiesNote: "Этот сайт не использует внешние файлы cookie. Хранятся только внутренние файлы cookie (например, настройки темы).",
   },
+  donate: {
+    title: "Donate",
+    description: "PayPal + crypto payments. Thanks for supporting Rinthy."
+  },
 };
 

@@ -137,4 +137,8 @@ export const fr: Translations = {
     joinDiscord: "Rejoindre le Discord",
     cookiesNote: "Ce site n'utilise aucun cookie externe. Seuls les cookies internes essentiels (tels que les préférences de thème) sont stockés.",
   },
+  donate: {
+    title: "Donate",
+    description: "PayPal + crypto payments. Thanks for supporting Rinthy."
+  },
 };
