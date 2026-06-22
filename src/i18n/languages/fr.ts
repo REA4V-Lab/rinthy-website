@@ -113,7 +113,7 @@ export const fr: Translations = {
   download: {
     badge: "Obtenir l'application",
     title: "Télécharger Rinthy.",
-    subtitle: "Disponible sur Android. Le support iOS est prévu.",
+    subtitle: "Disponible sur Android et iOS.",
     android: {
       title: "Android",
       desc: "Téléchargement de l'APK via GitHub Releases",
@@ -121,8 +121,8 @@ export const fr: Translations = {
     },
     ios: {
       title: "iOS",
-      desc: "Sortie sur l'App Store bientôt disponible",
-      button: "Bientôt disponible",
+      desc: "Téléchargement de l'IPA via GitHub Releases",
+      button: "Dernière version",
     },
   },
 

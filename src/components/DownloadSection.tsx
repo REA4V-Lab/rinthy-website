@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { useTranslation } from "../i18n/I18nContext";
 import { usePerformanceProfile } from "../hooks/usePerformanceProfile";
+import { useState } from "react";
 
 function AndroidIcon({ className }: { className?: string }) {
   return (
@@ -104,6 +105,8 @@ function DownloadCard({
 export default function DownloadSection() {
   const t = useTranslation();
   const { enableAnimations } = usePerformanceProfile();
+  const [iosLoading, setIosLoading] = useState(false);
+  const [androidLoading, setAndroidLoading] = useState(false);
 
   const headerAnimationProps = enableAnimations
     ? {
@@ -112,6 +115,35 @@ export default function DownloadSection() {
         transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
       }
     : {};
+
+  const handleIosClick = async () => {
+    setIosLoading(true);
+    const releaseUrl = "https://github.com/imsawiq/Rinthy/releases/latest";
+    try {
+      const res = await fetch("https://api.github.com/repos/imsawiq/Rinthy/releases/latest", {
+        headers: {
+          Accept: "application/vnd.github+json",
+        },
+      });
+
+      if (!res.ok) {
+        window.location.href = releaseUrl;
+        setIosLoading(false);
+        return;
+      }
+
+      const release = await res.json();
+      const ipaAsset = (release?.assets ?? []).find((a: any) =>
+        typeof a?.name === "string" && a.name.toLowerCase().endsWith(".ipa"),
+      );
+
+      window.location.href = ipaAsset?.browser_download_url ?? releaseUrl;
+    } catch {
+      window.location.href = releaseUrl;
+    } finally {
+      setIosLoading(false);
+    }
+  };
 
   return (
     <section id="download" className="section">
@@ -170,9 +202,12 @@ export default function DownloadSection() {
             icon={AppleIcon}
             title={t.download.ios.title}
             description={t.download.ios.desc}
-            buttonText={t.download.ios.button}
-            disabled={true}
-            delay={0.2}
+            buttonText={iosLoading ? "Loading..." : t.download.ios.button}
+            onClick={handleIosClick}
+            disabled={false}
+            delay={0.1}
+            iconSize="w-8 h-8"
+            containerSize="w-16 h-16"
           />
         </div>
       </div>

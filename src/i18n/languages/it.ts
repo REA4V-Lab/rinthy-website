@@ -88,16 +88,16 @@ export const it: Translations = {
   download: {
     badge: "Scarica",
     title: "Scarica Rinthy.",
-    subtitle: "Disponibile su Android. Il supporto iOS è in arrivo.",
+    subtitle: "Disponibile su Android e iOS",
     android: {
       title: "Android",
-      desc: "Download APK da GitHub Releases",
-      button: "Scarica",
+      desc: "Scarica  l'APK da GitHub Releases",
+      button: "Versione più recente",
     },
     ios: {
       title: "iOS",
-      desc: "Rilascio App Store in arrivo",
-      button: "In Arrivo",
+      desc: "Scarica l'IPA da GitHub Releases",
+      button: "Versione più recente",
     },
   },
   footer: {
