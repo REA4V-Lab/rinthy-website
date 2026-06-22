@@ -105,8 +105,8 @@ function DownloadCard({
 export default function DownloadSection() {
   const t = useTranslation();
   const { enableAnimations } = usePerformanceProfile();
-  const [iosLoading, setIosLoading] = useState(false);
-  const [androidLoading, setAndroidLoading] = useState(false);
+
+
 
   const headerAnimationProps = enableAnimations
     ? {
