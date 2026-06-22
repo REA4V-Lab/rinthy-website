@@ -95,7 +95,7 @@ export const en: Translations = {
     },
     ios: {
       title: "iOS",
-      desc: "IPA downlaod via GitHub Releases",
+      desc: "IPA download via GitHub Releases",
       button: "Latest Release",
     },
   },

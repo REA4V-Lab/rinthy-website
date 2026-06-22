@@ -199,11 +199,13 @@ export default function DownloadSection() {
               icon={AppleIcon}
               title={t.download.ios.title}
               description={t.download.ios.desc}
+              buttonText={t.download.ios.button}
               onClick={handleIosClick}
               disabled={false}
               delay={0.1}
               iconSize="w-8 h-8"
-              containerSize="w-16 h-16" buttonText={""}          />
+              containerSize="w-16 h-16"
+          />
         </div>
       </div>
     </section>
