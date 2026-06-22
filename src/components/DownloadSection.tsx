@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { useTranslation } from "../i18n/I18nContext";
 import { usePerformanceProfile } from "../hooks/usePerformanceProfile";
-import { useState } from "react";
+
 
 function AndroidIcon({ className }: { className?: string }) {
   return (
@@ -117,7 +117,6 @@ export default function DownloadSection() {
     : {};
 
   const handleIosClick = async () => {
-    setIosLoading(true);
     const releaseUrl = "https://github.com/imsawiq/Rinthy/releases/latest";
     try {
       const res = await fetch("https://api.github.com/repos/imsawiq/Rinthy/releases/latest", {
@@ -128,7 +127,6 @@ export default function DownloadSection() {
 
       if (!res.ok) {
         window.location.href = releaseUrl;
-        setIosLoading(false);
         return;
       }
 
@@ -141,7 +139,6 @@ export default function DownloadSection() {
     } catch {
       window.location.href = releaseUrl;
     } finally {
-      setIosLoading(false);
     }
   };
 
@@ -199,16 +196,14 @@ export default function DownloadSection() {
           />
 
           <DownloadCard
-            icon={AppleIcon}
-            title={t.download.ios.title}
-            description={t.download.ios.desc}
-            buttonText={iosLoading ? "Loading..." : t.download.ios.button}
-            onClick={handleIosClick}
-            disabled={false}
-            delay={0.1}
-            iconSize="w-8 h-8"
-            containerSize="w-16 h-16"
-          />
+              icon={AppleIcon}
+              title={t.download.ios.title}
+              description={t.download.ios.desc}
+              onClick={handleIosClick}
+              disabled={false}
+              delay={0.1}
+              iconSize="w-8 h-8"
+              containerSize="w-16 h-16" buttonText={""}          />
         </div>
       </div>
     </section>
