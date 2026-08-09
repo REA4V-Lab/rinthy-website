@@ -39,7 +39,7 @@ export default function StatusBar() {
 
   const isUp = status === "up";
   const isDown = status === "down";
-  const isChecking = status === "checking";
+  
 
   const dotColor = isUp
     ? "bg-modrinth-green"
