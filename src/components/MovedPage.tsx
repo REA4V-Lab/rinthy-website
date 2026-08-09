@@ -352,12 +352,7 @@ We&rsquo;re on the move
                 </motion.span>
               </motion.div>
 
-              {/* Status bar for the new site */}
-              <div className="mb-10 flex justify-center">
-                <StatusBar />
-              </div>
-
-              {/* Headline */}
+{/* Headline */}
               <motion.h1
                 variants={container}
                 initial="hidden"
@@ -399,7 +394,7 @@ className="font-display font-black text-4xl xs:text-5xl sm:text-6xl lg:text-8xl 
                 transition={{ delay: 1.4, duration: 0.6 }}
                 className="mt-10 flex flex-col items-center gap-5"
               >
-                <motion.button
+<motion.button
                   onClick={() => setShowBot(true)}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -409,6 +404,11 @@ className="font-display font-black text-4xl xs:text-5xl sm:text-6xl lg:text-8xl 
                   Continue to the new site
                   <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </motion.button>
+
+                {/* Status bar merged below the CTA */}
+                <div className="-mt-2">
+                  <StatusBar />
+                </div>
               </motion.div>
             </motion.div>
           ) : (

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Activity, CheckCircle2, XCircle, Loader2 } from "lucide-react";
 
 const TARGET = "https://ryntra.sawiq.org";
 const CHECK_INTERVAL_MS = 30000; // re-check every 30s
@@ -46,59 +45,50 @@ export default function StatusBar() {
     ? "bg-modrinth-green"
     : isDown
     ? "bg-red-500"
-    : "bg-modrinth-muted";
+    : "bg-zinc-500";
 
-  const label = isUp
-    ? "All systems operational"
-    : isDown
-    ? "The new site appears to be down"
-    : "Checking status…";
+  const statusText = isUp ? "Online" : isDown ? "Offline" : "Checking";
 
-  const statusText = isUp ? "UP" : isDown ? "DOWN" : "CHECKING";
-
-return (
+  return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.6 }}
-      className="flex w-full max-w-xs sm:max-w-sm items-center justify-center gap-2 sm:gap-3 rounded-2xl sm:rounded-full glass-strong px-4 py-2.5 sm:px-5 glow-green-subtle"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/60 px-3.5 py-1.5 backdrop-blur-md"
       title={
         updatedAt
           ? `Last checked: ${updatedAt.toLocaleTimeString()}`
           : "Checking availability"
       }
     >
-      <Activity size={16} className="shrink-0 text-modrinth-muted" />
-
-      <span className="flex min-w-0 items-center gap-2 text-sm font-medium text-theme-text">
-        <span className="relative flex h-2.5 w-2.5 shrink-0">
-          {isChecking && (
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-modrinth-green opacity-75" />
-          )}
-          {isUp && (
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-modrinth-green opacity-60" />
-          )}
-          <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${dotColor}`} />
-        </span>
-        <span className="truncate">ryntra.sawiq.org</span>
+      <span className="relative flex h-2 w-2">
+        {!isDown && (
+          <span
+            className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-60 ${
+              isUp ? "bg-modrinth-green" : "bg-zinc-400"
+            }`}
+          />
+        )}
+        <span className={`relative inline-flex h-2 w-2 rounded-full ${dotColor}`} />
       </span>
+
+      <span className="text-[11px] font-medium tracking-wide text-white/70">
+        ryntra.sawiq.org
+      </span>
+
+      <span className="h-3 w-px bg-white/10" />
 
       <span
-        className={`flex shrink-0 items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold tracking-wide ${
+        className={`text-[10px] font-semibold tracking-wide ${
           isUp
-            ? "bg-modrinth-green/15 text-modrinth-green"
+            ? "text-modrinth-green"
             : isDown
-            ? "bg-red-500/15 text-red-400"
-            : "bg-modrinth-border text-modrinth-muted"
+            ? "text-red-400"
+            : "text-zinc-400"
         }`}
       >
-        {isUp && <CheckCircle2 size={13} />}
-        {isDown && <XCircle size={13} />}
-        {isChecking && <Loader2 size={13} className="animate-spin" />}
         {statusText}
       </span>
-
-      <span className="hidden xs:inline text-xs text-modrinth-muted">{label}</span>
     </motion.div>
   );
 }
