@@ -36,9 +36,13 @@ const word = {
 
 /* ---------- Floating particles ---------- */
 function Particles({ count = 24 }: { count?: number }) {
+  // Reduce particle count on small screens for better mobile performance
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const effectiveCount = isMobile ? Math.min(count, 10) : count;
+
   const particles = useMemo(
     () =>
-      Array.from({ length: count }).map((_, i) => ({
+      Array.from({ length: effectiveCount }).map((_, i) => ({
         id: i,
         left: Math.random() * 100,
         size: 2 + Math.random() * 5,
@@ -46,7 +50,7 @@ function Particles({ count = 24 }: { count?: number }) {
         delay: Math.random() * 6,
         drift: (Math.random() - 0.5) * 120,
       })),
-    [count]
+    [effectiveCount]
   );
 
   return (
@@ -103,8 +107,8 @@ function BotCheck({ onVerified }: { onVerified: () => void }) {
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ type: "spring", stiffness: 120, damping: 14 }}
-      className="relative w-full max-w-md rounded-2xl glass-strong p-6 text-left overflow-hidden"
+transition={{ type: "spring", stiffness: 120, damping: 14 }}
+      className="relative w-full max-w-md rounded-2xl glass-strong p-5 xs:p-6 text-left overflow-hidden"
     >
       {/* animated gradient border */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl p-px bg-gradient-to-r from-modrinth-green via-theme-secondary to-modrinth-green animate-spin-slow" style={{ WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)", WebkitMaskComposite: "xor", mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)", maskComposite: "exclude" }} />
@@ -328,7 +332,7 @@ export default function MovedPage() {
       {/* Confetti when verified */}
       {verified && <ConfettiBurst key="confetti" />}
 
-      <div className="relative z-10 px-6 py-12 text-center w-full max-w-3xl mx-auto">
+<div className="relative z-10 px-4 xs:px-6 py-10 xs:py-12 text-center w-full max-w-3xl mx-auto">
         <AnimatePresence mode="wait">
           {!verified ? (
             <motion.div key="landing" exit={{ opacity: 0, scale: 0.9, y: -20 }}>
@@ -358,13 +362,13 @@ We&rsquo;re on the move
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className="font-display font-black text-5xl sm:text-6xl lg:text-8xl leading-[1.05] tracking-tight"
+className="font-display font-black text-4xl xs:text-5xl sm:text-6xl lg:text-8xl leading-[1.1] tracking-tight"
               >
                 {headline.map((w, i) => (
                   <motion.span
                     key={i}
                     variants={word}
-                    className="inline-block mr-4 sm:mr-6 bg-gradient-to-r from-modrinth-green via-white to-modrinth-green bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer last:mr-0"
+                    className="inline-block mr-2.5 sm:mr-4 lg:mr-6 bg-gradient-to-r from-modrinth-green via-white to-modrinth-green bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer last:mr-0"
                   >
                     {w}
                   </motion.span>

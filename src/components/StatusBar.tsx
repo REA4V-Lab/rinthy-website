@@ -56,22 +56,22 @@ export default function StatusBar() {
 
   const statusText = isUp ? "UP" : isDown ? "DOWN" : "CHECKING";
 
-  return (
+return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, duration: 0.6 }}
-      className="inline-flex items-center gap-3 rounded-full glass-strong px-5 py-2.5 glow-green-subtle"
+      className="flex w-full max-w-xs sm:max-w-sm items-center justify-center gap-2 sm:gap-3 rounded-2xl sm:rounded-full glass-strong px-4 py-2.5 sm:px-5 glow-green-subtle"
       title={
         updatedAt
           ? `Last checked: ${updatedAt.toLocaleTimeString()}`
           : "Checking availability"
       }
     >
-      <Activity size={16} className="text-modrinth-muted" />
+      <Activity size={16} className="shrink-0 text-modrinth-muted" />
 
-      <span className="flex items-center gap-2 text-sm font-medium text-theme-text">
-        <span className="relative flex h-2.5 w-2.5">
+      <span className="flex min-w-0 items-center gap-2 text-sm font-medium text-theme-text">
+        <span className="relative flex h-2.5 w-2.5 shrink-0">
           {isChecking && (
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-modrinth-green opacity-75" />
           )}
@@ -80,11 +80,11 @@ export default function StatusBar() {
           )}
           <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${dotColor}`} />
         </span>
-        ryntra.sawiq.org
+        <span className="truncate">ryntra.sawiq.org</span>
       </span>
 
       <span
-        className={`flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold tracking-wide ${
+        className={`flex shrink-0 items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold tracking-wide ${
           isUp
             ? "bg-modrinth-green/15 text-modrinth-green"
             : isDown
@@ -98,7 +98,7 @@ export default function StatusBar() {
         {statusText}
       </span>
 
-      <span className="text-xs text-modrinth-muted">{label}</span>
+      <span className="hidden xs:inline text-xs text-modrinth-muted">{label}</span>
     </motion.div>
   );
 }
