@@ -51,7 +51,7 @@ export default function Navbar() {
       ? "bg-white/95 md:bg-transparent"
       : "bg-modrinth-dark/95 md:bg-transparent";
   };
-
+   // i miss you come back
   return (
     <motion.nav
       initial={enableAnimations ? { y: -80 } : { y: 0 }}

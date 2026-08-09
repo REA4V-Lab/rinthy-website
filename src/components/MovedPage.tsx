@@ -6,12 +6,13 @@ import {
   MapPin,
   Sparkles,
   Rocket,
-Compass,
+  Compass,
   Globe,
-ShieldCheck,
+  ShieldCheck,
   Loader2,
   Check,
 } from "lucide-react";
+import StatusBar from "./StatusBar";
 
 const REDIRECT_URL = "https://ryntra.sawiq.org";
 const REDIRECT_SECONDS = 10;
@@ -341,11 +342,16 @@ export default function MovedPage() {
                 <motion.span animate={{ rotate: [0, 20, -20, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
                   <MapPin size={16} className="text-modrinth-green" />
                 </motion.span>
-                We&rsquo;re on the move
+We&rsquo;re on the move
                 <motion.span animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 1.5 }}>
                   <Sparkles size={16} className="text-modrinth-green" />
                 </motion.span>
               </motion.div>
+
+              {/* Status bar for the new site */}
+              <div className="mb-10 flex justify-center">
+                <StatusBar />
+              </div>
 
               {/* Headline */}
               <motion.h1
