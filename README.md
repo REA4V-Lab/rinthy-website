@@ -1,3 +1,5 @@
+> [!NOTE]
+> This website has been discontinued, and will no longer receive updates
 # Rinthy
 
 <div align="center">
